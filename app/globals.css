@@ -44,6 +44,15 @@ a { @apply transition-colors; }
   .nav-link.active { @apply text-white; }
   .nav-link.active::after { content: ''; @apply absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-primary; }
   .header-actions { @apply hidden items-center gap-2 md:flex; }
+  .icon-button, .mobile-menu-button { @apply relative; }
+  .notification-dot { @apply absolute right-2 top-2 size-1.5 rounded-full bg-primary-light; }
+  .header-popover { @apply absolute right-5 top-[68px] z-20 rounded-xl border border-white/10 bg-[#11172a]/95 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl; }
+  .search-popover { @apply flex w-[min(390px,calc(100vw-2.5rem))] items-center gap-3; }
+  .search-popover input { @apply min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/35; }
+  .search-popover button { @apply text-white/45 hover:text-white; }
+  .notification-popover { @apply flex w-80 items-start justify-between gap-5; }
+  .notification-popover strong { @apply text-sm text-white; }
+  .notification-popover p { @apply mt-1 text-xs text-white/50; }
   .icon-button, .mobile-menu-button { @apply flex size-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition-colors hover:border-white/25 hover:bg-white/10 hover:text-white; }
   .mobile-menu-button { @apply md:hidden; }
   .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light; }
@@ -105,6 +114,12 @@ a { @apply transition-colors; }
   .stat span { @apply text-sm text-white/45; }
   .card-rule { @apply h-px bg-white/10; }
   .pulse-card > p { @apply text-sm text-white/55; }
+  .dialog-backdrop { @apply fixed inset-0 z-[70] flex items-center justify-center bg-black/70 p-5 backdrop-blur-sm; }
+  .sign-in-dialog { @apply relative flex w-full max-w-md flex-col gap-5 rounded-2xl border border-white/15 bg-[#11172a] p-7 shadow-2xl shadow-black/40; }
+  .sign-in-dialog h2 { @apply text-3xl text-white; }
+  .sign-in-dialog p { @apply text-white/55; }
+  .dialog-close { @apply absolute right-4 top-4 flex size-9 items-center justify-center rounded-lg text-white/50 hover:bg-white/10 hover:text-white; }
+  .dialog-actions { @apply flex flex-col gap-3 pt-2; }
   .site-footer { @apply border-t border-white/10 py-8; }
   .footer-inner { @apply flex flex-col items-center justify-between gap-5 text-xs text-white/40 md:flex-row; }
   .footer-brand, .footer-links { @apply flex items-center gap-4; }

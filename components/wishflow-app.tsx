@@ -10,6 +10,9 @@ const filters = ['Trending', 'New', 'Almost fulfilled', 'Verified']
 export default function WishflowApp() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeFilter, setActiveFilter] = useState('Trending')
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [notificationsOpen, setNotificationsOpen] = useState(false)
+  const [signInOpen, setSignInOpen] = useState(false)
   return (
     <div className="min-h-screen overflow-hidden">
       <header className="site-header">
@@ -25,14 +28,16 @@ export default function WishflowApp() {
               <a className="nav-link" href="#stories">Stories</a>
             </nav>
             <div className="header-actions">
-              <button className="icon-button" aria-label="Search"><Search size={18} /></button>
-              <button className="icon-button" aria-label="Notifications"><Bell size={18} /></button>
-              <button className="button-ghost sign-in">Sign in</button>
+              <button className="icon-button" aria-label="Search" onClick={() => setSearchOpen((value) => !value)}><Search size={18} /></button>
+              <button className="icon-button notification-button" aria-label="Notifications" onClick={() => setNotificationsOpen((value) => !value)}><Bell size={18} /><span className="notification-dot" /></button>
+              <button className="button-ghost sign-in" onClick={() => setSignInOpen(true)}>Sign in</button>
               <button className="button-primary header-cta">Make a wish <ArrowRight size={16} /></button>
             </div>
             <button aria-label={menuOpen ? 'Close menu' : 'Open menu'} className="mobile-menu-button" onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</button>
           </div>
-          {menuOpen && <div className="mobile-nav"><a href="#discover" onClick={() => setMenuOpen(false)}>Discover</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a><div className="mobile-nav-actions"><button className="button-ghost">Sign in</button><button className="button-primary">Make a wish <ArrowRight size={16} /></button></div></div>}
+          {menuOpen && <div className="mobile-nav"><a href="#discover" onClick={() => setMenuOpen(false)}>Discover</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a><div className="mobile-nav-actions"><button className="button-ghost" onClick={() => setSignInOpen(true)}>Sign in</button><button className="button-primary">Make a wish <ArrowRight size={16} /></button></div></div>}
+          {searchOpen && <div className="header-popover search-popover"><Search size={17} /><input autoFocus placeholder="Search wishes, people, or causes" aria-label="Search wishes" /><button aria-label="Close search" onClick={() => setSearchOpen(false)}><X size={16} /></button></div>}
+          {notificationsOpen && <div className="header-popover notification-popover"><div><strong>Community pulse</strong><p>A new wish is trending in your community.</p></div><span className="live"><i /> Live</span></div>}
         </div>
       </header>
 
@@ -57,6 +62,7 @@ export default function WishflowApp() {
 
         <section id="stories" className="belief-section"><div className="container belief-grid"><div><span className="eyebrow">The WISHFLOW belief</span><blockquote>“Some ideas are too powerful to stay in someone&apos;s head.”</blockquote><p>WISHFLOW explores what happens when generosity becomes discoverable.</p></div><div className="pulse-card"><div className="pulse-header"><span>Community pulse</span><span className="live"><i /> Live now</span></div><div className="stat-grid"><Stat value="2.4k" label="wishes shared" /><Stat value="$184k" label="possibility unlocked" /><Stat value="91%" label="community trust" /><Stat value="38" label="wishes fulfilled" /></div><div className="card-rule" /><p>Every number is a person, a promise, or a possibility waiting to move.</p></div></div></section>
       </main>
+      {signInOpen && <div className="dialog-backdrop" role="presentation" onClick={() => setSignInOpen(false)}><section className="sign-in-dialog" role="dialog" aria-modal="true" aria-labelledby="sign-in-title" onClick={(event) => event.stopPropagation()}><button className="dialog-close" aria-label="Close sign in" onClick={() => setSignInOpen(false)}><X size={18} /></button><span className="eyebrow">Welcome back</span><h2 id="sign-in-title">Sign in to WISHFLOW.</h2><p>Keep track of your wishes, support meaningful ideas, and stay close to your community.</p><div className="dialog-actions"><button className="button-primary" onClick={() => setSignInOpen(false)}>Continue with email <ArrowRight size={16} /></button><button className="button-secondary" onClick={() => setSignInOpen(false)}>Create an account</button></div></section></div>}
       <footer className="site-footer"><div className="container footer-inner"><div className="footer-brand"><span className="brand-mark small"><img src={logoUrl} alt="" /></span><span>© 2026 WISHFLOW. Make possibility discoverable.</span></div><div className="footer-links"><a href="#top">Privacy</a><a href="#top">Terms</a><a href="#top">Trust & safety</a></div></div></footer>
     </div>
   )
