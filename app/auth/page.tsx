@@ -1,0 +1,5 @@
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import { PageFrame } from '@/components/wishflow-ui'
+export default function AuthPage() { const [email, setEmail] = useState(''); const [continued, setContinued] = useState(false); return <PageFrame title="Where Wishes Become Reality." description="Sign in to follow your wishes, support others, and stay connected to what matters."><div className="container auth-shell"><div className="auth-card"><span className="eyebrow">Welcome to WISHFLOW</span>{continued ? <><h2>Check your inbox.</h2><p>We sent a continuation link to {email}.</p><Link href="/dashboard" className="button-primary">Continue to dashboard →</Link></> : <form onSubmit={(event) => { event.preventDefault(); setContinued(true) }}><label>Email address<input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" /></label><button className="button-primary" type="submit">Continue with email →</button></form>}</div></div></PageFrame> }

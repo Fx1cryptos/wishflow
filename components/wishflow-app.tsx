@@ -20,10 +20,10 @@ export default function WishflowApp() {
           <div className="header-bar">
             <a href="#top" className="brand-lockup" aria-label="WISHFLOW home">
               <span className="brand-mark"><img src={logoUrl} alt="" /></span>
-              <span className="brand-copy"><strong>WISHFLOW</strong><small>Make possibility visible</small></span>
+              <span className="brand-copy"><strong>WISHFLOW</strong><small>Where wishes become reality.</small></span>
             </a>
             <nav className="desktop-nav" aria-label="Primary navigation">
-              <a className="nav-link active" href="#discover">Discover</a>
+              <a className="nav-link active" href="/discover">Discover</a>
               <a className="nav-link" href="#how-it-works">How it works</a>
               <a className="nav-link" href="#stories">Stories</a>
             </nav>
@@ -31,11 +31,11 @@ export default function WishflowApp() {
               <button className="icon-button" aria-label="Search" onClick={() => setSearchOpen((value) => !value)}><Search size={18} /></button>
               <button className="icon-button notification-button" aria-label="Notifications" onClick={() => setNotificationsOpen((value) => !value)}><Bell size={18} /><span className="notification-dot" /></button>
               <button className="button-ghost sign-in" onClick={() => setSignInOpen(true)}>Sign in</button>
-              <button className="button-primary header-cta">Make a wish <ArrowRight size={16} /></button>
+              <a href="/create" className="button-primary header-cta">Make a wish <ArrowRight size={16} /></a>
             </div>
             <button aria-label={menuOpen ? 'Close menu' : 'Open menu'} className="mobile-menu-button" onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</button>
           </div>
-          {menuOpen && <div className="mobile-nav"><a href="#discover" onClick={() => setMenuOpen(false)}>Discover</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a><div className="mobile-nav-actions"><button className="button-ghost" onClick={() => setSignInOpen(true)}>Sign in</button><button className="button-primary">Make a wish <ArrowRight size={16} /></button></div></div>}
+          {menuOpen && <div className="mobile-nav"><a href="/discover" onClick={() => setMenuOpen(false)}>Discover</a><a href="#how-it-works" onClick={() => setMenuOpen(false)}>How it works</a><a href="#stories" onClick={() => setMenuOpen(false)}>Stories</a><div className="mobile-nav-actions"><button className="button-ghost" onClick={() => setSignInOpen(true)}>Sign in</button><button className="button-primary">Make a wish <ArrowRight size={16} /></button></div></div>}
           {searchOpen && <div className="header-popover search-popover"><Search size={17} /><input autoFocus placeholder="Search wishes, people, or causes" aria-label="Search wishes" /><button aria-label="Close search" onClick={() => setSearchOpen(false)}><X size={16} /></button></div>}
           {notificationsOpen && <div className="header-popover notification-popover"><div><strong>Community pulse</strong><p>A new wish is trending in your community.</p></div><span className="live"><i /> Live</span></div>}
         </div>
@@ -47,7 +47,7 @@ export default function WishflowApp() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <span className="eyebrow"><Sparkles size={14} /> The future of generosity</span>
-              <h1>Make a wish.<br /><span className="gradient-text">Let possibility find you.</span></h1>
+              <h1>Where <span className="gradient-text">Wishes Become Reality.</span></h1>
               <p className="hero-lede">WISHFLOW is where genuine wishes meet the people who can make them happen. Share what matters. Discover what moves you. Create possibility together.</p>
               <div className="hero-actions"><button className="button-primary">Make a wish <ArrowRight size={17} /></button><button className="button-secondary"><Compass size={17} /> Explore wishes</button></div>
               <div className="trust-row"><span><ShieldCheck size={16} /> Trust is the product</span><span><Users size={16} /> Built by community</span></div>

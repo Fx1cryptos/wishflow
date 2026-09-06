@@ -1,0 +1,4 @@
+import Link from 'next/link'
+import { PageFrame } from '@/components/wishflow-ui'
+import { wishes, progressFor } from '@/lib/wishes'
+export default function DashboardPage() { return <PageFrame title="Your dashboard" description="Keep your wishes, drafts, and support in one place."><div className="container dashboard-shell"><div className="dashboard-tabs"><button className="selected">My wishes</button><button>Drafts</button><button>Supported</button></div><div className="dashboard-list">{wishes.slice(0,3).map((wish) => <Link className="dashboard-row" href={`/w/${wish.id}`} key={wish.id}><div className={`dashboard-thumb cover-${wish.accent}`} /><div className="dashboard-row-copy"><span>{wish.category}</span><h2>{wish.title}</h2><p>{progressFor(wish)}% fulfilled · {wish.supporters} supporters</p></div><strong>${wish.raised.toLocaleString()} / ${wish.goal.toLocaleString()}</strong></Link>)}</div></div></PageFrame> }
