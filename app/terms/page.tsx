@@ -1,0 +1,2 @@
+import { ProductFrame } from '@/components/product-pages'
+export default function Page() { return <ProductFrame><section className="product-hero"><span className="eyebrow">Legal</span><h1>Terms of service.</h1><p className="product-lede">Clear terms for a clear community.</p><p className="product-copy">WISHFLOW is currently in private beta. By using the platform, you agree to be honest, respectful, and responsible for the wishes and responses you share.</p></section></ProductFrame> }

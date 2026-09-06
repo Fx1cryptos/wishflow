@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'WISHFLOW - Make a wish. Let possibility find you.',
-  description: 'A next-generation Web4 platform where people share their wildest wishes and people with the ability to help discover and make them happen.',
+  title: 'WISHFLOW — Where Wishes Become Reality.',
+  description: 'WISHFLOW is where genuine wishes meet the people who can help make them real.',
   openGraph: {
     title: 'WISHFLOW',
-    description: 'Make a wish. Let possibility find you.',
+    description: 'Where Wishes Become Reality.',
     type: 'website',
   },
 }
