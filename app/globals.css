@@ -213,4 +213,50 @@ a { @apply transition-colors; }
   .not-found { @apply flex min-h-screen flex-col items-center justify-center gap-5 bg-background px-6 text-center; }
   .not-found h1 { @apply max-w-3xl text-4xl md:text-6xl; }
   .not-found p { @apply text-white/55; }
+  .product-page { @apply min-h-screen bg-background text-foreground; }
+  .product-header { @apply sticky top-0 z-40 border-b border-white/10 bg-background/90 backdrop-blur-xl; }
+  .product-header-inner { @apply flex min-h-20 items-center justify-between gap-6; }
+  .product-nav { @apply hidden items-center gap-7 text-sm text-white/50 md:flex; }
+  .product-nav a { @apply transition-colors hover:text-white; }
+  .product-nav a.active { @apply text-white; }
+  .product-actions { @apply hidden items-center gap-3 md:flex; }
+  .product-main { @apply min-h-[70vh] py-10 md:py-16; }
+  .product-footer { @apply border-t border-white/10 py-12; }
+  .product-footer-grid { @apply grid gap-8 md:grid-cols-4; }
+  .product-footer-grid > div { @apply flex flex-col gap-3; }
+  .product-footer-grid strong { @apply text-sm text-white; }
+  .product-footer-grid a, .product-footer-grid span, .product-footer-grid p { @apply text-sm text-white/45 no-underline; }
+  .product-footer-grid a:hover { @apply text-white; }
+  .product-hero { @apply flex max-w-4xl flex-col gap-5 py-10 md:py-20; }
+  .product-hero h1 { @apply text-balance text-5xl leading-[1.05] text-white md:text-7xl; }
+  .product-lede { @apply max-w-2xl text-xl leading-relaxed text-white/75; }
+  .product-copy { @apply max-w-2xl text-base leading-relaxed text-white/50; }
+  .info-grid { @apply grid gap-5 md:grid-cols-3; }
+  .info-card { @apply flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[.035] p-6; }
+  .info-card h2 { @apply text-xl text-white; }
+  .info-card p { @apply text-sm leading-relaxed text-white/55; }
+  .faq-list { @apply flex max-w-3xl flex-col gap-3; }
+  .faq-item { @apply rounded-xl border border-white/10 bg-white/[.035] p-5; }
+  .faq-item button { @apply flex w-full items-center justify-between gap-5 text-left text-white; }
+  .faq-item button svg { @apply transition-transform; }
+  .faq-item button svg.rotate { @apply rotate-180; }
+  .faq-item p { @apply mt-4 border-t border-white/10 pt-4 text-sm leading-relaxed text-white/55; }
+  .profile-hero { @apply flex flex-col items-start gap-5 rounded-2xl border border-white/10 bg-white/[.035] p-6 md:flex-row md:items-center; }
+  .profile-avatar { @apply flex size-20 items-center justify-center rounded-full bg-primary/20 text-2xl font-semibold text-primary-light; }
+  .profile-hero h1 { @apply mt-2 text-4xl text-white; }
+  .profile-hero p { @apply mt-2 text-white/55; }
+  .profile-hero button { @apply md:ml-auto; }
+  .profile-stats { @apply grid grid-cols-3 gap-3 py-8; }
+  .profile-stats > div { @apply flex flex-col gap-1 border-r border-white/10 last:border-0; }
+  .profile-stats strong { @apply text-3xl text-white; }
+  .profile-stats span { @apply text-xs text-white/45; }
+  .subheading { @apply mb-5 text-2xl text-white; }
+  .notification-list { @apply flex max-w-2xl flex-col gap-3; }
+  .notification-list article { @apply flex items-start gap-4 rounded-xl border border-white/10 bg-white/[.035] p-5; }
+  .notification-list strong { @apply text-sm text-white; }
+  .notification-list p { @apply mt-1 text-sm text-white/50; }
+  .settings-card { @apply flex max-w-2xl flex-col gap-5 rounded-2xl border border-white/10 bg-white/[.035] p-6; }
+  .settings-card label { @apply flex flex-col gap-2 text-sm text-white/70; }
+  .settings-card input, .settings-card textarea { @apply rounded-lg border border-white/10 bg-background px-4 py-3 text-white outline-none focus:border-primary; }
+  .settings-card textarea { @apply min-h-32; }
 }

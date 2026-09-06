@@ -1,0 +1,2 @@
+import { ProductFrame } from '@/components/product-pages'
+export default function Page() { return <ProductFrame><section className="product-hero"><span className="eyebrow">Legal</span><h1>Privacy by design.</h1><p className="product-lede">Your story belongs to you.</p><p className="product-copy">We only use information needed to operate WISHFLOW, protect the community, and help you manage your account. This private-beta page will be expanded before public launch.</p></section></ProductFrame> }
