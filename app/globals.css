@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #8B5CF6;
+  --color-primary-light: #A78BFA;
+  --color-secondary: #2563EB;
+  --color-secondary-light: #60A5FA;
+  --color-accent: #312E81;
+  --color-background: #080B19;
+  --color-foreground: #F8FAFC;
+  --color-muted: #94A3B8;
+  --color-border: #24304A;
+  --radius: 0.7rem;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+* { @apply box-border; }
+html { @apply bg-background scroll-smooth; }
+body { @apply bg-background text-foreground font-sans antialiased; background: #080B19; }
+a { @apply transition-colors; }
+
+@layer base {
+  h1, h2, h3, h4 { @apply font-bold tracking-tight; }
+  h1 { @apply text-5xl md:text-6xl lg:text-7xl; }
+  h2 { @apply text-3xl md:text-5xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  p { @apply leading-relaxed; }
+}
+
+@layer components {
+  .container { @apply mx-auto w-full max-w-7xl px-5 md:px-8; }
+  .section { @apply py-20 md:py-28; }
+  .site-header { @apply sticky top-0 z-50 border-b border-white/10 bg-background/85 backdrop-blur-2xl; }
+  .header-bar { @apply flex h-[76px] items-center justify-between gap-5; }
+  .brand-lockup { @apply flex items-center gap-3 no-underline; color: #fff; }
+  .brand-mark { @apply flex h-10 w-8 shrink-0 overflow-hidden rounded-md border border-white/15 bg-accent/50; }
+  .brand-mark img { @apply h-full w-full object-cover object-top; }
+  .brand-mark.small { @apply h-8 w-6; }
+  .brand-copy { @apply flex flex-col leading-none; }
+  .brand-copy strong { @apply text-sm font-bold tracking-[0.25em] text-white; }
+  .brand-copy small { @apply mt-1 text-[9px] uppercase tracking-[0.12em] text-white/40; }
+  .desktop-nav { @apply hidden items-center gap-8 md:flex; }
+  .nav-link { @apply relative py-7 text-sm text-white/55 no-underline hover:text-white; }
+  .nav-link.active { @apply text-white; }
+  .nav-link.active::after { content: ''; @apply absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-primary; }
+  .header-actions { @apply hidden items-center gap-2 md:flex; }
+  .icon-button, .mobile-menu-button { @apply relative; }
+  .notification-dot { @apply absolute right-2 top-2 size-1.5 rounded-full bg-primary-light; }
+  .header-popover { @apply absolute right-5 top-[68px] z-20 rounded-xl border border-white/10 bg-[#11172a]/95 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl; }
+  .search-popover { @apply flex w-[min(390px,calc(100vw-2.5rem))] items-center gap-3; }
+  .search-popover input { @apply min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/35; }
+  .search-popover button { @apply text-white/45 hover:text-white; }
+  .notification-popover { @apply flex w-80 items-start justify-between gap-5; }
+  .notification-popover strong { @apply text-sm text-white; }
+  .notification-popover p { @apply mt-1 text-xs text-white/50; }
+  .icon-button, .mobile-menu-button { @apply flex size-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition-colors hover:border-white/25 hover:bg-white/10 hover:text-white; }
+  .mobile-menu-button { @apply md:hidden; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-light; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-secondary/45 bg-secondary/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-secondary/25; }
+  .button-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-white/65 transition-colors hover:bg-white/8 hover:text-white; }
+  .mobile-nav { @apply flex flex-col gap-4 border-t border-white/10 py-5 md:hidden; }
+  .mobile-nav a { @apply text-sm text-white/70 no-underline; }
+  .mobile-nav-actions { @apply flex gap-2 border-t border-white/10 pt-4; }
+  .hero { @apply relative overflow-hidden; min-height: 680px; }
+  .hero-grid { @apply relative grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr]; }
+  .hero-copy { @apply flex max-w-3xl flex-col gap-7; }
+  .hero-lede { @apply max-w-2xl text-lg text-white/60; }
+  .hero-actions, .trust-row { @apply flex flex-wrap items-center gap-4; }
+  .trust-row { @apply gap-6 pt-2 text-sm text-white/45; }
+  .trust-row span { @apply inline-flex items-center gap-2; }
+  .trust-row svg { @apply text-primary-light; }
+  .eyebrow { @apply inline-flex w-fit items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary-light; }
+  .gradient-text { @apply bg-gradient-to-r from-primary-light via-secondary-light to-primary bg-clip-text text-transparent; }
+  .hero-glow { @apply pointer-events-none absolute rounded-full blur-3xl; }
+  .hero-glow-one { @apply -right-20 top-0 size-96 bg-secondary/15; }
+  .hero-glow-two { @apply bottom-0 left-1/4 size-80 bg-primary/10; }
+  .hero-visual { @apply relative mx-auto w-full max-w-[430px]; }
+  .visual-ring { @apply absolute -inset-8 rounded-full bg-primary/10 blur-3xl; }
+  .logo-panel { @apply relative overflow-hidden rounded-2xl border border-white/15 bg-accent/35 p-2 shadow-2xl shadow-secondary/20; }
+  .logo-panel img { @apply aspect-[.67] w-full rounded-xl object-cover; }
+  .logo-caption { @apply absolute bottom-7 left-7 right-7 flex items-center justify-between rounded-xl border border-white/15 bg-background/80 p-4 backdrop-blur-xl; }
+  .logo-caption div { @apply flex flex-col gap-1; }
+  .logo-caption small { @apply text-[10px] uppercase tracking-[.18em] text-white/40; }
+  .logo-caption strong { @apply text-sm font-medium text-white; }
+  .logo-caption svg { @apply text-primary-light; }
+  .discovery-section { @apply border-y border-white/10 bg-white/[.015]; }
+  .section-stack { @apply flex flex-col gap-10; }
+  .section-heading { @apply flex flex-col justify-between gap-5 md:flex-row md:items-end; }
+  .section-heading.compact { @apply items-end; }
+  .section-heading h2 { @apply mt-4 text-white; }
+  .section-heading p { @apply mt-3 max-w-xl text-white/55; }
+  .section-link { @apply shrink-0; }
+  .filter-row { @apply flex flex-wrap gap-2; }
+  .filter-chip { @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 px-4 py-2 text-sm text-white/55 transition-colors hover:border-primary/40 hover:text-white; }
+  .filter-chip.selected { @apply border-primary/50 bg-primary/15 text-primary-light; }
+  .step-grid { @apply grid gap-5 md:grid-cols-3; }
+  .step-card, .pulse-card { @apply rounded-2xl border border-white/10 bg-white/[.035] p-6 backdrop-blur-sm; }
+  .step-card { @apply flex flex-col gap-5 transition-transform hover:-translate-y-1; }
+  .step-top { @apply flex items-center justify-between; }
+  .step-icon { @apply flex size-11 items-center justify-center rounded-lg bg-primary/15 text-primary-light; }
+  .step-number { @apply font-mono text-sm text-white/30; }
+  .step-card p, .belief-grid p { @apply text-white/55; }
+  .belief-section { @apply border-y border-white/10 bg-accent/20 py-20 md:py-28; }
+  .belief-grid { @apply grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr]; }
+  blockquote { @apply mt-6 max-w-2xl text-3xl font-semibold leading-tight text-white md:text-5xl; }
+  .belief-grid > div > p { @apply mt-6 max-w-lg; }
+  .pulse-card { @apply flex flex-col gap-7; }
+  .pulse-header { @apply flex items-center justify-between text-sm text-white/50; }
+  .live { @apply inline-flex items-center gap-2 text-primary-light; }
+  .live i { @apply size-2 rounded-full bg-primary; }
+  .stat-grid { @apply grid grid-cols-2 gap-6 md:grid-cols-4; }
+  .stat { @apply flex flex-col gap-1; }
+  .stat strong { @apply text-3xl text-white; }
+  .stat span { @apply text-sm text-white/45; }
+  .card-rule { @apply h-px bg-white/10; }
+  .pulse-card > p { @apply text-sm text-white/55; }
+  .dialog-backdrop { @apply fixed inset-0 z-[70] flex items-center justify-center bg-black/70 p-5 backdrop-blur-sm; }
+  .sign-in-dialog { @apply relative flex w-full max-w-md flex-col gap-5 rounded-2xl border border-white/15 bg-[#11172a] p-7 shadow-2xl shadow-black/40; }
+  .sign-in-dialog h2 { @apply text-3xl text-white; }
+  .sign-in-dialog p { @apply text-white/55; }
+  .dialog-close { @apply absolute right-4 top-4 flex size-9 items-center justify-center rounded-lg text-white/50 hover:bg-white/10 hover:text-white; }
+  .dialog-actions { @apply flex flex-col gap-3 pt-2; }
+  .site-footer { @apply border-t border-white/10 py-8; }
+  .footer-inner { @apply flex flex-col items-center justify-between gap-5 text-xs text-white/40 md:flex-row; }
+  .footer-brand, .footer-links { @apply flex items-center gap-4; }
+  .footer-links a { @apply text-white/40 no-underline hover:text-white; }
+}
